@@ -56,3 +56,19 @@ Pass headers to an HTTP server:
   is installed; otherwise install the server package with pip and call
   its console script directly.
 - Output is JSON on stdout; errors go to stderr with a non-zero exit.
+
+## Established alternatives
+
+This is a small learning exercise, not a novel tool. If you want a
+maintained generic MCP client, use one of these instead:
+
+- **MCP Inspector** (official, `@modelcontextprotocol/inspector`) — the
+  canonical client, with a scriptable CLI mode:
+  `npx @modelcontextprotocol/inspector --cli <server> --method tools/list --format json`
+  and `--method tools/call --tool-name <name> --tool-arg k=v`.
+- **mcp-cli** (philschmid/mcp-cli) — a standalone binary built
+  specifically for coding agents to call MCP servers:
+  `mcp-cli call <server> <tool> '<json>'`.
+- **cli-mcp** (PyPI) — minimal Python client, reads a Cursor `mcp.json`:
+  `uvx cli-mcp call <server> <tool> '<json>'`.
+- **call-mcp** (npm) — config-file based, JSON on stdout.
